@@ -7,10 +7,8 @@ import re
 from playwright.async_api import async_playwright
 from telegram import Update
 from telegram.ext import ContextTypes
-from telegram.ext import ApplicationBuilder, CommandHandler, ContextTypes
-from telegram import Update
 import aiohttp
-TOKEN = "7929848191:AAGX4CUXNAABjOGU9nh1HggVguOURt0FDTA"
+
 coins = ["BTC", "ETH", "XRP", "TRX", "DOGE"]
 
 async def fetch_usdt_vnd_binance_p2p():
@@ -159,17 +157,3 @@ async def check_giacoin(update: Update, context: ContextTypes.DEFAULT_TYPE):
             msg += "  KRW Rate: Không tính được\n\n"
 
     await update.message.reply_text(msg.strip())
-async def start(update: Update, context: ContextTypes.DEFAULT_TYPE):
-    await update.message.reply_text("👋 Xin chào! Gõ /price để xem tỷ giá coin.")
-
-if __name__ == '__main__':
-    import logging
-    logging.basicConfig(level=logging.INFO)
-    async def init_job_queue(app):
-        app.job_queue
-
-    app = ApplicationBuilder().token(TOKEN).post_init(init_job_queue).build()
-    app.add_handler(CommandHandler("start", start))
-    app.add_handler(CommandHandler("price", check_giacoin))
-    print("✅ Bot đang chạy...")
-    app.run_polling()    
