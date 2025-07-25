@@ -3,8 +3,7 @@ import requests
 from telegram import Update
 from telegram.ext import ApplicationBuilder, CommandHandler, ContextTypes
 # Token bot Telegram (sửa trực tiếp ở đây nếu không dùng biến môi trường)
-TOKEN = "7929848191:AAGX4CUXNAABjOGU9nh1HggVguOURt0FDTA"
-
+TOKEN = "7671161277:AAEEMoCs-DT-SuaFa9r83Pc4A8M4ut--nLg"
 # Lấy giá mua USDT trên Binance P2P (VNĐ)
 def get_binance_p2p_buy_price():
     url = "https://p2p.binance.com/bapi/c2c/v2/friendly/c2c/adv/search"
